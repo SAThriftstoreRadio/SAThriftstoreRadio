@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SAThriftstoreRadio</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f0f0f0; color: #333; padding: 20px; max-width: 700px; margin: auto; }
+  h1 { text-align: center; color: #b7410e; }
+  audio { width: 100%; margin-top: 20px; }
+  #status { margin-top: 10px; font-style: italic; }
+</style>
+</head>
+<body>
+<h1>SAThriftstoreRadio</h1>
+<p><em>Where good tunes, good finds, and good hearts come together.</em></p>
+
+<audio id="player" controls></audio>
+<div id="status">Loading playlist...</div>
+
+<script>
+  const player = document.getElementById('player');
+  const status = document.getElementById('status');
+
+  // Placeholder file lists - replace or generate dynamically
+  const musicFiles = [
+    'music/song1.mp3',
+    'music/song2.mp3',
+    // Add your music files here or load dynamically
+  ];
+
+  const adFiles = [
+    'ads/ad1.mp3',
+    'ads/ad2.mp3',
+    // Your ads here
+  ];
+
+  const podcastFiles = [
+    'podcasts/podcast1.mp3',
+    'podcasts/podcast2.mp3',
+    // Your podcasts here
+  ];
+
+  const syndicatedFiles = [
+    'syndicated/show1.mp3',
+    'syndicated/show2.mp3',
+    // Your syndicated shows here
+  ];
+
+  let playQueue = [];
+  let currentIndex = 0;
+
+  // Basic playback logic example (simplified)
+  function playNext() {
+    if (currentIndex >= playQueue.length) currentIndex = 0;
+    const nextTrack = playQueue[currentIndex];
+    status.textContent = 'Now playing: ' + nextTrack;
+    player.src = nextTrack;
+    player.play();
+    currentIndex++;
+  }
+
+  player.addEventListener('ended', playNext);
+
+  // Build a simple playlist from music for demo
+  playQueue = [...musicFiles];
+
+  // Start playing
+  playNext();
+</script>
+
+</body>
+</html>
