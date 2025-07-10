@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SAThriftstoreRadio</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f7f7f7;
+      background: #f4f4f4;
       color: #333;
       padding: 20px;
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
     }
     h1 {
@@ -30,7 +30,6 @@
 <body>
   <h1>SAThriftstoreRadio</h1>
   <p><em>Where good tunes, good finds, and good hearts come together.</em></p>
-
   <audio id="player" controls></audio>
   <div id="status">Loading playlist...</div>
 
@@ -39,9 +38,15 @@
     const status = document.getElementById('status');
 
     const playlist = [
+      'news/news1.mp3',
       'music/song1.mp3',
+      'music/song2.mp3',
       'ads/ad1.mp3',
       'podcasts/podcast1.mp3',
+      'ads/ad2.mp3',
+      'music/song3.mp3',
+      'music/song4.mp3',
+      'ads/ad3.mp3',
       'syndicated/show1.mp3'
     ];
 
@@ -57,7 +62,6 @@
     }
 
     player.addEventListener('ended', playNext);
-
     playNext();
   </script>
 </body>
