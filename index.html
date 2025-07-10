@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAThriftstoreRadio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #333;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #a52a2a;
+    }
+    audio {
+      width: 100%;
+      margin-top: 20px;
+    }
+    #status {
+      margin-top: 10px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>SAThriftstoreRadio</h1>
+  <p><em>Where good tunes, good finds, and good hearts come together.</em></p>
+
+  <audio id="player" controls></audio>
+  <div id="status">Loading playlist...</div>
+
+  <script>
+    const player = document.getElementById('player');
+    const status = document.getElementById('status');
+
+    const playlist = [
+      'music/song1.mp3',
+      'ads/ad1.mp3',
+      'podcasts/podcast1.mp3',
+      'syndicated/show1.mp3'
+    ];
+
+    let index = 0;
+
+    function playNext() {
+      if (index >= playlist.length) index = 0;
+      const track = playlist[index];
+      player.src = track;
+      player.play();
+      status.textContent = 'Now playing: ' + track;
+      index++;
+    }
+
+    player.addEventListener('ended', playNext);
+
+    playNext();
+  </script>
+</body>
+</html>
